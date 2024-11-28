@@ -13,6 +13,7 @@ import { useNavigate} from "react-router-dom";
 
 // Url da api
 const url = "http://localhost:5000/usuarios"
+const fotoLoja = "img/bolo-chocolate-branco-tradicional.png"
 
 const Login = () => {
   //Resetar localstorage
@@ -98,10 +99,10 @@ const Login = () => {
       >
         {/* Icone de login */}
         <span
-          style={{ fontSize: "200px", color: "white" }}
+          style={{ fontSize: "200px", color: "white", padding: "20px"}}
           className="material-symbols-outlined"
         >
-          login
+          <img src={fotoLoja} alt="Imagem Local" />
         </span>
         <Form style={{ width: "75%", margin: "auto" }} onSubmit={handleLogin}>
           {/* Caixinha de email */}
@@ -140,7 +141,7 @@ const Login = () => {
           {/* Botao pra enviar o formulário */}
           <Button variant="light" type="submit" className="mt-4" size="lg">
             Login
-          </Button>
+          </Button> 
         </Form>
       </Container>
     </div>
