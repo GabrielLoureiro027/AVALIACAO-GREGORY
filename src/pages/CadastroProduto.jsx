@@ -46,7 +46,7 @@ const CadastroProduto = () => {
   //Variáveis para o produto
   const [nome, setNome] = useState("");
   const [descricao, setDescricao] = useState("");
-  const [categoria, setCategoria] = useState("Eletrônicos");
+  const [categoria, setCategoria] = useState("Bolo");
   const [preco, setPreco] = useState("");
   const [imagemUrl, setImagemUrl] = useState("");
 
