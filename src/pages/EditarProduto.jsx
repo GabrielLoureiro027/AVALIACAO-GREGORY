@@ -98,7 +98,7 @@ const EditarProduto = () => {
             setAlertVariant("success");
             setAlertMensagem("Produto editado com sucesso");
             alert("Produto editado com sucesso");
-            // navigate("/home");
+            navigate("/home");
           } 
           catch (error) {
             console.log(error);
