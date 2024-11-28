@@ -17,6 +17,18 @@
       "nome": "Doce",
       "email": "docemel@sodoce.com.br",
       "senha": "brigadeiro123"
+    },
+    {
+      "id": "bc05",
+      "nome": "kadu",
+      "email": "kd@gmail.com",
+      "senha": "123"
+    },
+    {
+      "id": "e552",
+      "nome": "Arthur",
+      "email": "tutu@gmail.com",
+      "senha": "123"
     }
   ],
   "produtos": [

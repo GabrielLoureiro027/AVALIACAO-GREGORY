@@ -4,22 +4,23 @@ import Form from "react-bootstrap/Form";
 import Container from "react-bootstrap/Container";
 import Button from "react-bootstrap/Button";
 import Alert from "react-bootstrap/Alert";
+import { Link } from "react-router-dom";
 
 // Importando o hook useState para monitorar a mudança das variáveis
 import { useState, useEffect } from "react";
 
 //Importação do navigate pra transitar entre páginas
-import { useNavigate} from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 
 // Url da api
-const url = "http://localhost:5000/usuarios"
-const fotoLoja = "img/bolo-chocolate-branco-tradicional.png"
+const url = "http://localhost:5000/usuarios";
+const fotoLoja = "img/bolo-chocolate-branco-tradicional.png";
 
 const Login = () => {
   //Resetar localstorage
-  localStorage.removeItem("userName")
-  localStorage.removeItem("email")
-  
+  localStorage.removeItem("userName");
+  localStorage.removeItem("email");
+
   //Variáveis pra guardar as informações digitadas pelo usuário
   const [email, setEmail] = useState("");
   const [senha, setSenha] = useState("");
@@ -30,63 +31,57 @@ const Login = () => {
   const [alertVariant, setAlertVariant] = useState("danger");
 
   //Lista com usuarios
-  const [usuarios, setUsuarios] = useState([])
+  const [usuarios, setUsuarios] = useState([]);
 
   //UseEffect pra puxar os dados da api
-  useEffect(()=>{
-    async function fetchData(){
-      try{
-          const req = await fetch(url)
-          const users = await req.json()
-          console.log(users)
-          setUsuarios(users)
-      }
-      catch(erro){
-        console.log(erro.message)
+  useEffect(() => {
+    async function fetchData() {
+      try {
+        const req = await fetch(url);
+        const users = await req.json();
+        console.log(users);
+        setUsuarios(users);
+      } catch (erro) {
+        console.log(erro.message);
       }
     }
-    fetchData()
-  }, [])
+    fetchData();
+  }, []);
 
   // Criando o navigate
-  const navigate = useNavigate()
+  const navigate = useNavigate();
 
   // Função pra guardar na memória do navegador as informações do usuário
-  const gravarLocalStorage = (usuario) =>{
-    localStorage.setItem("userName", usuario.nome)
-    localStorage.setItem("email", usuario.email)
-  }
+  const gravarLocalStorage = (usuario) => {
+    localStorage.setItem("userName", usuario.nome);
+    localStorage.setItem("email", usuario.email);
+  };
 
   //Função pra tratar os dados de login
   const handleLogin = async (e) => {
     //Previne a página de ser recarregada
     e.preventDefault();
 
-    // Verifica se há aquele usuário digitados na lista 
-    const userToFind = usuarios.find(
-      (user)=>user.email == email
-    )
+    // Verifica se há aquele usuário digitados na lista
+    const userToFind = usuarios.find((user) => user.email == email);
     if (email != "") {
       if (senha != "") {
-        if(userToFind != undefined && userToFind.senha == senha){
-          gravarLocalStorage(userToFind)
+        if (userToFind != undefined && userToFind.senha == senha) {
+          gravarLocalStorage(userToFind);
           setAlertClass("mb-3 mt-2");
-          setAlertVariant("success")
+          setAlertVariant("success");
           setAlertMensagem("Login efetuado com sucesso");
-          alert("Login efetuado com sucesso")
-          navigate("/home")
-        }
-        else{
+          alert("Login efetuado com sucesso");
+          navigate("/home");
+        } else {
           setAlertClass("mb-3 mt-2");
           setAlertMensagem("Usuário ou senha inválidos");
         }
-      } 
-      else {
+      } else {
         setAlertClass("mb-3 mt-2");
         setAlertMensagem("O campo senha não pode ser vazio");
       }
-    } 
-    else {
+    } else {
       setAlertClass("mb-3 mt-2");
       setAlertMensagem("O campo email não pode ser vazio");
     }
@@ -99,7 +94,7 @@ const Login = () => {
       >
         {/* Icone de login */}
         <span
-          style={{ fontSize: "200px", color: "white", padding: "20px"}}
+          style={{ fontSize: "200px", color: "white", padding: "20px" }}
           className="material-symbols-outlined"
         >
           <img src={fotoLoja} alt="Imagem Local" />
@@ -141,8 +136,14 @@ const Login = () => {
           {/* Botao pra enviar o formulário */}
           <Button variant="light" type="submit" className="mt-4" size="lg">
             Login
-          </Button> 
+          </Button>
         </Form>
+        <p className="mt-3 text-center">
+          Ainda não tem uma conta?{" "}
+          <Link to="/cadastro" className="text-primary">
+            Cadastre-se
+          </Link>
+        </p>
       </Container>
     </div>
   );

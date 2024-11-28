@@ -10,6 +10,7 @@ import Home from "./pages/Home";
 import CadastroProduto from "./pages/CadastroProduto";
 import EditarProduto from "./pages/EditarProduto";
 import VerUse from "./pages/VerUse";
+import CadastroUsuario from "./pages/CadastroUsuario";
 
 //Importação do gerenciador de rotas
 import { BrowserRouter, Route, Routes } from "react-router-dom";
@@ -23,8 +24,10 @@ function App() {
           <Route path="/login" element={<Login />}/>  
           <Route path="/home" element={<Home />}/> 
           <Route path="/produto/cadastrar" element={<CadastroProduto />}/>  
-          <Route path="/produto/editar/:id" element={<EditarProduto />}/>   
-          {/* <Route path="/veruse" element={<VerUse />}/>     */}
+          <Route path="/produto/editar/:id" element={<EditarProduto />}/>
+          <Route path="/cadastro" element={<CadastroUsuario />} />
+        
+          /* <Route path="/veruse" element={<VerUse />}/>     */
         </Routes>
       </BrowserRouter>
     </div>
