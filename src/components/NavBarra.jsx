@@ -7,7 +7,7 @@ const NavBarra = () => {
   const usuarioNome = localStorage.getItem("userName")
     return (
     <div>
-      <Navbar expand="lg" bg="success" data-bs-theme="dark">
+      <Navbar expand="lg" bg="black" data-bs-theme="dark">
         <Container>
           {/* Icone mercado */}
           <span

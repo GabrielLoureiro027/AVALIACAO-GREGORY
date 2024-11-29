@@ -55,7 +55,8 @@ const CadastroUsuario = () => {
         setAlertMensagem("Cadastro realizado com sucesso!");
         setAlertClass("mb-3 mt-2");
         setTimeout(() => {
-          navigate("/login"); // Redireciona para a página de login
+          alert("Cadastro efetuado com sucesso");
+          navigate("/home"); // Redireciona para a página de login
         }, 2000);
       } else {
         setAlertMensagem("Erro ao realizar cadastro. Tente novamente.");
@@ -72,7 +73,20 @@ const CadastroUsuario = () => {
       style={{ height: "100vh" }}
       className="d-flex flex-column justify-content-center align-items-center"
     >
-      <img src={fotoLoja} alt="Imagem Local" />
+      <img
+        src={fotoLoja}
+        alt="Imagem Local"
+        style={{
+          width: "256px", // Largura da imagem
+          height: "256px", // Altura da imagem
+          borderRadius: "50%", // Borda arredondada (circular)
+          border: "5px solid #ffcbdb", // Cor rosa clara para a borda
+          boxShadow: "0 8px 16px rgba(0, 0, 0, 0.2)", // Sombra para destaque
+          objectFit: "cover", // Ajusta a imagem sem distorção
+          display: "block", // Centraliza a imagem em elementos block
+          margin: "20px", // Centraliza dentro do contêiner pai
+        }}
+      />
       <Form style={{ width: "75%" }} onSubmit={handleCadastro}>
         <FloatingLabel controlId="floatingNome" label="Nome" className="mb-3">
           <Form.Control
@@ -117,15 +131,14 @@ const CadastroUsuario = () => {
         </Alert>
 
         <Button variant="light" type="submit" className="mt-4" size="lg">
-            Cadastrar
-          </Button>
+          Cadastrar
+        </Button>
         <p className="mt-3 text-center">
-  Ainda não tem uma conta?{" "}
-  <Link to="/login" className="text-primary">
-    Faça login
-  </Link>
-</p>
-
+          Ainda não tem uma conta?{" "}
+          <Link to="/login" className="text-primary">
+            Faça login
+          </Link>
+        </p>
       </Form>
     </Container>
   );
