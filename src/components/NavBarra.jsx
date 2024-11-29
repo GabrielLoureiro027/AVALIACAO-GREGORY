@@ -1,7 +1,10 @@
 // importando components do bootstrap
 import Container from "react-bootstrap/Container";
 import Nav from "react-bootstrap/Nav";
-import Navbar from "react-bootstrap/Navbar";
+import Navbar from "react-bootstrap/Navbar"; 
+
+const fotoLoja = "img/bolo-chocolate-branco-tradicional.png";
+const banner = "img/banner.png";
 
 const NavBarra = () => {
   const usuarioNome = localStorage.getItem("userName")
@@ -17,7 +20,9 @@ const NavBarra = () => {
             store
           </span>
           {/* Texto logo */}
-          <Navbar.Brand href="/home">C&G Mercados</Navbar.Brand>
+          <Navbar.Brand href="/home"><img
+
+/></Navbar.Brand>
 
           <Navbar.Toggle aria-controls="minha-nav" />
           <Navbar.Collapse id="minha-nav">
@@ -29,7 +34,7 @@ const NavBarra = () => {
             {/* Sair */}
             <Nav className="justify-content-end">
               <Navbar.Text style={{color:"white"}}>
-                Usuário: {usuarioNome} |
+                {usuarioNome} |
               </Navbar.Text>
               <Nav.Link href="/login">Sair</Nav.Link>
             </Nav>

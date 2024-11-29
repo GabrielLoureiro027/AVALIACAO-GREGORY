@@ -101,7 +101,7 @@ const CadastroProduto = () => {
   };
 
   return (
-    <div>
+    <div style={{textAlign:"center", alignItems:"center", height:"100vh"}}>
       <NavBarra />
       <Container>
         <h1>Cadastrar Produtos</h1>

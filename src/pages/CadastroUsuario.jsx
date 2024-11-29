@@ -10,6 +10,7 @@ import Alert from "react-bootstrap/Alert";
 const url = "http://localhost:5000/usuarios";
 const fotoLoja = "img/bolo-chocolate-branco-tradicional.png";
 
+
 const CadastroUsuario = () => {
   const navigate = useNavigate();
 
@@ -80,7 +81,6 @@ const CadastroUsuario = () => {
           width: "256px", // Largura da imagem
           height: "256px", // Altura da imagem
           borderRadius: "50%", // Borda arredondada (circular)
-          border: "5px solid #ffcbdb", // Cor rosa clara para a borda
           boxShadow: "0 8px 16px rgba(0, 0, 0, 0.2)", // Sombra para destaque
           objectFit: "cover", // Ajusta a imagem sem distorção
           display: "block", // Centraliza a imagem em elementos block

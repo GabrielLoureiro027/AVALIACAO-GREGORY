@@ -10,31 +10,46 @@ import NavBarra from "../components/NavBarra";
 import { useState, useEffect } from "react";
 
 // Url da api
-const url = "http://localhost:5000/produtos"
+const url = "http://localhost:5000/produtos";
+const fotoLoja = "img/bolo-chocolate-branco-tradicional.png";
+const banner = "img/banner.png";
 
 const Home = () => {
-    //Lista com produtos
-    const [produtos, setProdutos] = useState([])
-    //UseEffect pra puxar os dados da api
-    useEffect(()=>{
-      async function fetchData(){
-        try{
-            const req = await fetch(url)
-            const prods = await req.json()
-            console.log(prods)
-            setProdutos(prods)
-        }
-        catch(erro){
-          console.log(erro.message)
-        }
+  //Lista com produtos
+  const [produtos, setProdutos] = useState([]);
+  //UseEffect pra puxar os dados da api
+  useEffect(() => {
+    async function fetchData() {
+      try {
+        const req = await fetch(url);
+        const prods = await req.json();
+        console.log(prods);
+        setProdutos(prods);
+      } catch (erro) {
+        console.log(erro.message);
       }
-      fetchData()
-    }, [produtos])
-  
+    }
+    fetchData();
+  }, [produtos]);
+
   return (
     <div>
       <NavBarra />
-      <h1>Lista de produtos</h1>
+      <img
+  src={banner}
+  alt="Imagem Local"
+  style={{
+    height:"456px",
+    margin:"20px"
+  }}
+/>
+      <h1 style={{textAlign:"center"}}>
+      Lista de Produtos
+      </h1>
+      <div>
+
+
+      </div>
       <Container>
         <div className="lista-produtos d-flex col-12 gap-2 mt-3 justify-content-start flex-wrap">
           {/* Card com informações fixas */}
@@ -60,6 +75,7 @@ const Home = () => {
             />
           ))}
         </div>
+
       </Container>
     </div>
   );
